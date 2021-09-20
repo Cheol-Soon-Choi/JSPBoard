@@ -1,0 +1,1 @@
+<%response.sendRedirect("board/main.do");%>

@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JSPBoard:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JSPBoard_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="JSPBoard/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JSPBoard" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="cos" />
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.45-bin" />
+          <element id="library" level="project" name="json-simple-1.1.1" />
+          <element id="library" level="project" name="servlet-api" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
