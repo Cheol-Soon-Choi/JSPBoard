@@ -80,8 +80,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center">
-                            <a class="read_btn" href="likeProc.do?cPage=${cPage}&num=${num}">좋아요</a>
-                            <a class="read_btn" href="javascript:void(0)" onclick="like()">좋아요2</a>
+                            <a class="read_btn" href="javascript:void(0)" onclick="like()">좋아요</a>
                                 <input class="num" name="num" type="hidden" value="${num}">
                                 <input class="cPage" name="cPage" type="hidden" value="${cPage}">
 

@@ -249,7 +249,7 @@ function like() {
     let data = {"num": num};
     $.ajax({
         type: "POST",
-        url: "likeProc2.do",
+        url: "likeProc.do",
         contentType: "application/json",
         data: JSON.stringify(data),
         dataType: "json",

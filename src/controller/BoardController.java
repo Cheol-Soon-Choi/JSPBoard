@@ -63,9 +63,6 @@ public class BoardController extends HttpServlet {
             case"/board/downLoad.do":
                 action = new downLoadAction();
                 break;
-            case"/board/likeProc2.do":
-                action = new likeProc2Action();
-                break;
         }
         try {
             action.execute(request, response);
