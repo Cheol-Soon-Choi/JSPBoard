@@ -32,7 +32,11 @@
 <c:if test="${!empty idKey}">
     <ul class="nav nav-fill nav-tabs">
         <li class="nav-item">
-            <a class="nav-link <c:if test="${pageContext.request.servletPath == '/board/main.jsp' || pageContext.request.servletPath.contains('/board/read.jsp')}">active</c:if>"
+            <a class="nav-link <c:if test="${pageContext.request.servletPath == '/board/main.jsp' ||
+                                             pageContext.request.servletPath.contains('/board/read.jsp') ||
+                                             pageContext.request.servletPath.contains('/board/reply.jsp') ||
+                                             pageContext.request.servletPath.contains('/board/edit.jsp') ||
+                                             pageContext.request.servletPath.contains('/board/post.jsp')}">active</c:if>"
                href="${pageContext.request.contextPath}/board/main.do">게시판</a></li>
         <li class="nav-item">
             <a class="nav-link <c:if test="${pageContext.request.servletPath == '/board/member.jsp'}">active</c:if>"

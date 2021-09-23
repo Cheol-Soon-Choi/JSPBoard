@@ -110,7 +110,7 @@
                             <input type="button" value="처음으로" onclick="goHome()">
                         </th>
                         <th style="width: 50%; text-align: center">
-                            <form method="get" action="index.jsp" name="searchFrm" style="margin-bottom: 0px">
+                            <form method="get" action="main.do" name="searchFrm" style="margin-bottom: 0px">
                                 <label>
                                     <select name="keyField">
                                         <option value="nick_name">작성자</option>
