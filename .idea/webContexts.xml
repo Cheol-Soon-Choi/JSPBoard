@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/board/main.jsp" value="file://$PROJECT_DIR$/web/board" />
         <entry key="file://$PROJECT_DIR$/web/board/new.jsp" value="file://$PROJECT_DIR$/web/board" />
+        <entry key="file://$PROJECT_DIR$/web/board/read.jsp" value="file://$PROJECT_DIR$/web/board" />
         <entry key="file://$PROJECT_DIR$/web/board/read2.jsp" value="file://$PROJECT_DIR$/web/board" />
         <entry key="file://$PROJECT_DIR$/web/board/zipSearch2.jsp" value="file://$PROJECT_DIR$/web/board" />
       </map>

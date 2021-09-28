@@ -246,16 +246,25 @@ function down(filename) {
 //좋아요
 function like() {
     let num = $(".num").attr('value');
-    let data = {"num": num};
+    let email = $(".email").attr('value');
+    let data = {"num": num, "email": email};
     $.ajax({
         type: "POST",
         url: "likeProc.do",
         contentType: "application/json",
         data: JSON.stringify(data),
         dataType: "json",
-        success: function (response){
+        success: function (response) {
             let num = response.num;
+            let flag = response.flag;
             $("#like_count").html(num);
+            if (flag == true) { // 레드하트->블랙하트
+                $('#redHeart').html('좋아요🖤');
+                $('#redHeart').attr("id", "blackHeart");
+            } else { // 블랙하트->레드하트
+                $('#blackHeart').html('좋아요❤');
+                $('#blackHeart').attr("id", "redHeart");
+            }
         }
     })
 }

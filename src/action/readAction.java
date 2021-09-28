@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class readAction implements Action {
 
@@ -45,10 +46,15 @@ public class readAction implements Action {
             session.setAttribute("bean", bean);
             bMgr.upCount(num);
 
+            // 좋아요 상태 전달
+            HashMap<String, Object> rs = bMgr.checkLike(num, email);
+            boolean check = (boolean) rs.get("check");
+            boolean flag = (boolean) rs.get("flag");
+            request.setAttribute("check", check);
+            request.setAttribute("flag", flag);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("read.jsp");
             dispatcher.forward(request, response);
-
         }
-
     }
 }

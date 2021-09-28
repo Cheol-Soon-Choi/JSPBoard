@@ -80,17 +80,34 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center">
-                            <a class="read_btn" href="javascript:void(0)" onclick="like()">좋아요</a>
-                                <input class="num" name="num" type="hidden" value="${num}">
-                                <input class="cPage" name="cPage" type="hidden" value="${cPage}">
-
+                            <c:choose>
+                                <c:when test="${check == false}">
+                                    <a class="read_btn" id="blackHeart" href="javascript:void(0)"
+                                       onclick="like()">좋아요🖤</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="${flag == false}">
+                                            <a class="read_btn" id="blackHeart" href="javascript:void(0)"
+                                               onclick="like()">좋아요🖤</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a class="read_btn" id="redHeart" href="javascript:void(0)"
+                                               onclick="like()">좋아요❤</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                            <input class="email" name="email" type="hidden" value="${email}">
+                            <input class="num" name="num" type="hidden" value="${num}">
                             <a class="read_btn" href="reply.bo?cPage=${cPage}&num=${num}">답글</a>
                             <c:if test="${email !=null && email == bean.email}">
                                 <a class="read_btn" href="edit.bo?cPage=${cPage}&num=${num}">수정</a>
                                 <a class="read_btn" href="delete.bo?cPage=${cPage}&num=${num}"
                                    onclick="window.open(this.href, 'delBoard', 'width=500, height=250'); return false;">삭제</a>
                             </c:if>
-                            <a class="read_btn" href="main.do?cPage=${cPage}&num=${num}&keyField=${keyField}&keyWord=${keyWord}">목록</a>
+                            <a class="read_btn"
+                               href="main.do?cPage=${cPage}&num=${num}&keyField=${keyField}&keyWord=${keyWord}">목록</a>
                         </td>
                     </tr>
                 </table>

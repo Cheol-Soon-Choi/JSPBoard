@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BoardMgr {
 
@@ -257,7 +258,7 @@ public class BoardMgr {
         }
     }
 
-    //좋아요 증가
+    //좋아요 +1
     public void upLike(int num) {
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -297,6 +298,94 @@ public class BoardMgr {
             pool.freeConnection(con, pstmt);
         }
         return like;
+    }
+
+    //좋아요 db 확인
+    public HashMap<String, Object> checkLike(int num, String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        String sql = null;
+        ResultSet rs = null;
+
+        HashMap<String, Object> data = new HashMap<>();
+        boolean check = false;
+        boolean flag = false;
+        try {
+            con = pool.getConnection();
+            sql = "select flag from likes where num=? and email =?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, num);
+            pstmt.setString(2, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                check = true;
+                flag = rs.getBoolean("flag");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        data.put("check", check);
+        data.put("flag", flag);
+        return data;
+    }
+
+    //좋아요 db 등록
+    public void insertLike(int num, String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        String sql = null;
+        try {
+            con = pool.getConnection();
+            sql = "insert likes(email, num, flag) values (?, ?, 1)";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, email);
+            pstmt.setInt(2, num);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+    }
+
+    //좋아요 -1
+    public void downLike(int num) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        String sql = null;
+        try {
+            con = pool.getConnection();
+            sql = "update board set `like`=`like`-1 where num=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, num);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+    }
+
+    //좋아요 db 수정
+    public void editLike(int num, String email, boolean flag) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        String sql = null;
+        try {
+            con = pool.getConnection();
+            sql = "update likes set flag = if(? = false, true, false) where num=? and email=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setBoolean(1, flag);
+            pstmt.setInt(2, num);
+            pstmt.setString(3, email);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
     }
 
     //이전글 이동

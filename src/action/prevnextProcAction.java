@@ -17,6 +17,7 @@ public class prevnextProcAction implements Action {
         String cPage = request.getParameter("cPage");
         int rownum = 0;
         String msg;
+        String url;
 
         BoardMgr bMgr = new BoardMgr();
         if (movingP.equals("이전글")) { // 이전글
@@ -25,8 +26,10 @@ public class prevnextProcAction implements Action {
                 response.sendRedirect("read.bo?cPage=" + cPage + "&num=" + rownum);
             } else {
                 msg = "첫 글입니다.";
+                url = "read.bo?cPage=" + cPage + "&num=" + num;
                 request.setAttribute("msg", msg);
-                request.setAttribute("alertType", 2);
+                request.setAttribute("url", url);
+                request.setAttribute("alertType", 1);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("alert.jsp");
                 dispatcher.forward(request, response);
             }
@@ -36,8 +39,10 @@ public class prevnextProcAction implements Action {
                 response.sendRedirect("read.bo?cPage=" + cPage + "&num=" + rownum);
             } else {
                 msg = "마지막 글입니다.";
+                url = "read.bo?cPage=" + cPage + "&num=" + num;
                 request.setAttribute("msg", msg);
-                request.setAttribute("alertType", 2);
+                request.setAttribute("url", url);
+                request.setAttribute("alertType", 1);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("alert.jsp");
                 dispatcher.forward(request, response);
             }
