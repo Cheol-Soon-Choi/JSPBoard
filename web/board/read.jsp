@@ -47,11 +47,10 @@
             </div>
             <br/>
             <div class="readBoard_main">
-                <div>
-                    ${bean.contents}
-                </div>
-                <br>
-                <div>
+                <textarea name="contents" id="contents" rows="10" cols="100"
+                          style="border: none; width: 100%; height: 400px"
+                          readonly>${bean.contents}</textarea>
+                <div style="margin-top: 15px">
                     첨부파일:
                     <c:choose>
                         <c:when test="${bean.file_name != null && bean.file_name != ''}">

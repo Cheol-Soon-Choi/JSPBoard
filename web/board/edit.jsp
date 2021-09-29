@@ -52,7 +52,7 @@
                         <input type="hidden" name="num" value="${num}">
                         <input type="hidden" name="cPage" value="${cPage}">
                         <input type="button" value="취소" onclick="history.back()">
-                        <input type="button" value="등록" onclick="editSubmit()">
+                        <input type="button" value="수정" onclick="editSubmit()">
                     </td>
                 </tr>
             </table>

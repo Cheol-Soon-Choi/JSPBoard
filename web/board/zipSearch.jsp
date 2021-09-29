@@ -9,7 +9,7 @@
 </head>
 <body style="background-color: bisque">
 <div class="wrap" style="margin-top: 10px; text-align: center">
-    <form name="zipFrm" method="post">
+    <form name="zipFrm" method="post" action="zipSearch.do">
         <div>
             <span style="color: red">*서울특별시 검색만 가능*</span><br>
             <br>도로명 입력: <input name="area3">
