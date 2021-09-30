@@ -4,7 +4,7 @@
     + View: JSP
     + Model: Java
     + Controller: Servlet/Java
-- [세부설명(Notion)으로 이동](https://diagnostic-octopus-3df.notion.site/JSP-82921d34c0e941ed867bc7f14742cea6)
+- [세부설명(Notion)으로 이동](https://diagnostic-octopus-3df.notion.site/JSP-Servlet-82921d34c0e941ed867bc7f14742cea6)
 
 ## 2. 주요 기능 
 - 게시판 운영에 기본적으로 사용되는 글/회원 CRUD 기능 구현   
